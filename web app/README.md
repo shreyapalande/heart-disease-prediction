@@ -6,7 +6,7 @@ A simple web application which uses Machine Learning algorithm to predict the he
   
 **A Demo of the Web App :**
 
-![Heart_disease]()
+![Heart_disease](web app/Readme_resources/demo.gif)
  
 
 **About the repository Structure :**
