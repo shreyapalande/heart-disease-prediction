@@ -6,7 +6,7 @@ A simple web application which uses Machine Learning algorithm to predict the he
   
 **A Demo of the Web App :**
 
-![Heart_disease](https://github.com/shreyapalande/heart-disease-prediction/blob/132e7c6b40d903aa9f438cc6619288c8ff5ca736/web%20app/Readme_resources/demo.giff)
+![Heart_disease](https://github.com/shreyapalande/heart-disease-prediction/blob/web%20app/Readme_resources/demo.giff)
  
 
 **About the repository Structure :**
