@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Predictor</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper"  style="background-color: antiquewhite;">
+          <center class="main-label-inner">
+            <h1>Heart Disease Prediction System</h1>
+          </center>
+          <form action="{{ url_for('predict')}}" method="POST">
+            <div class="flex flex-wrap formbold--mx-3">
+              <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5">
+                  <label for="age" class="formbold-form-label"> Age </label>
+                  <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    placeholder="Age"
+                    class="formbold-form-input"
+                  />
+                </div>
+              </div>
+              <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-input-group">
+                  <label class="formbold-form-label">
+                    Gender
+                  </label>
+          
+                  <select class="formbold-form-select" name="sex" id="sex">
+                    <option selected>select</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="formbold-mb-5">
+              <div class="formbold-input-group">
+                <label class="formbold-form-label">
+                  Chest Pain Type
+                </label>
+        
+                <select class="formbold-form-select" name="cp" id="cp">
+                  <option selected>select</option>
+                  <option value="0">Typical Angina</option>
+                  <option value="1">Atypical Angina</option>
+                  <option value="2">Non-anginal Pain</option>
+                  <option value="3">Asymtomatic</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="formbold-mb-5">
+              <label for="trestbps" class="formbold-form-label">Resting Blood Pressure</label>
+              <input type="text" id="trestbps" name="trestbps" placeholder="A number in range [94-200] mmHg" class="formbold-form-input">
+            </div>
+
+            <div class="formbold-mb-5">
+              <label for="chol" class="formbold-form-label">Serum Cholesterol</label>
+              <input type="text" id="chol" name="chol" placeholder="A number in range [126-564] mg/dl" class="formbold-form-input">
+            </div>
+
+            <div class="formbold-mb-5">
+              <div class="formbold-input-group">
+                <label for="fbs" class="formbold-form-label"> Chest Pain Type </label>
+                <select class="formbold-form-select" name="fbs" id="fbs">
+                  <option selected>select</option>
+                  <option value="1">Greater than 120 mg/dl</option>
+                  <option value="0">Less than 120 mg/dl</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="formbold-mb-5">
+              <div class="formbold-input-group">
+                <label for="restecg" class="formbold-form-label"> Resting ECG Results </label>
+                <select class="formbold-form-select" name="restecg" id="restecg">
+                  <option selected>select</option>
+                  <option value="0">Normal</option>
+                  <option value="1">Having ST-T wave abnormality</option>
+                  <option value="2">Probable or definite left ventricular hypertrophy</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="formbold-mb-5">
+              <label for="thalach" class="formbold-form-label">Max Heart Rate</label>
+              <input type="text" id="thalach" name="thalach" placeholder="A number in range [71-202] bpm" class="formbold-form-input">
+            </div>
+
+            <div class="formbold-mb-5">
+              <div class="formbold-input-group">
+                <label for="exang" class="formbold-form-label"> Exercise-induced Angina </label>
+                <select class="formbold-form-select" name="exang" id="exang">
+                  <option selected>select</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="formbold-mb-5">
+              <label for="oldpeak" class="formbold-form-label">ST depression</label>
+              <input type="text" id="oldpeak" name="oldpeak" placeholder="ST depression, typically in [0-6.2]" class="formbold-form-input">
+            </div>
+
+            <div class="formbold-mb-5">
+              <div class="formbold-input-group">
+                <label for="slope" class="formbold-form-label"> Slope of the peak exercise ST segment </label>
+                <select class="formbold-form-select" name="slope" id="slope">
+                  <option selected>select</option>
+                  <option value="0">Upsloping</option>
+                  <option value="1">Flat</option>
+                  <option value="2">Downsloping</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="formbold-mb-5">
+              <label for="ca" class="formbold-form-label">Number of Major vessels</label>
+              <input type="text" id="ca" name="ca" placeholder="Typically in [0-4]" class="formbold-form-input">
+            </div>
+
+            <div class="formbold-mb-5">
+              <div class="formbold-input-group">
+                <label for="thal" class="formbold-form-label"> Thalassemia </label>
+                <select class="formbold-form-select" name="thal" id="thal">
+                  <option selected>select</option>
+                  <option value="0">Normal</option>
+                  <option value="1">Fixed Defect</option> 
+                  <option value="2">Reversible Defect</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="formbold-btn"  value="Predict">Submit</button>
+            </div>
+          </form>
+        </div>
+    </div>
+</body>
+</html>
